@@ -1,0 +1,32 @@
+[project]
+name = "govdatahub"
+version = "0.1.0"
+description = "GovDataHub civic data ingestion + API"
+authors = [{ name = "Bryan Beltran" }]
+requires-python = ">=3.11"
+dependencies = [
+    "alembic>=1.16.5",
+    "asyncpg>=0.30.0",
+    "fastapi>=0.116.1",
+    "httpx>=0.28.1",
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.10.1",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "sqlalchemy[asyncio]>=2.0.43",
+    "uvicorn[standard]>=0.35.0",
+]
+
+[tool.uv]
+# Tell uv to look for packages under src/
+src-layout = true
+
+[tool.black]
+line-length = 88
+skip-string-normalization = true
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "C4", "T20", "Q", "RUF"]
+ignore = []
+exclude = ["alembic/*", "tests/*"]
